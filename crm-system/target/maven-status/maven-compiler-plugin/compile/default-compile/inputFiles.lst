@@ -9,6 +9,7 @@ D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\domain\SysRoleDept.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\mapper\SysLogininforMapper.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\domain\SysNotice.java
+D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\domain\TCustomerContact.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\service\ISysConfigService.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\domain\SysConfig.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\service\impl\SysOperLogServiceImpl.java
@@ -17,6 +18,7 @@ D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\mapper\SysUserPostMapper.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\service\impl\SysDictTypeServiceImpl.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\service\ISysMenuService.java
+D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\mapper\TCustomerMapper.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\domain\SysLogininfor.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\mapper\SysNoticeMapper.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\domain\SysOperLog.java
@@ -32,11 +34,14 @@ D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\service\impl\SysRoleServiceImpl.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\service\ISysUserService.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\mapper\SysRoleDeptMapper.java
+D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\domain\TCustomer.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\domain\SysUserRole.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\domain\SysRoleMenu.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\mapper\SysUserMapper.java
+D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\service\ITCustomerService.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\domain\SysUserPost.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\mapper\SysOperLogMapper.java
+D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\service\impl\TCustomerServiceImpl.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\service\impl\SysUserServiceImpl.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\service\ISysPostService.java
 D:\work\星元\客户关系管理系统\crm\crm-xy\crm-system\src\main\java\com\xy\system\service\impl\SysDeptServiceImpl.java

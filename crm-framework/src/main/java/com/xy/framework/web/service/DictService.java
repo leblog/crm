@@ -8,7 +8,7 @@ import com.xy.system.service.ISysDictDataService;
 import com.xy.system.service.ISysDictTypeService;
 
 /**
- * RuoYi首创 html调用 thymeleaf 实现字典读取
+ * 首创 html调用 thymeleaf 实现字典读取
  *
  * @author lusifer
  */

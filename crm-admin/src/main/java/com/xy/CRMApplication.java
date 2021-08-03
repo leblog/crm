@@ -1,5 +1,7 @@
 package com.xy;
 
+import com.xy.common.utils.security.CipherUtils;
+import org.apache.shiro.codec.Base64;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -16,7 +18,8 @@ public class CRMApplication
     {
         // System.setProperty("spring.devtools.restart.enabled", "false");
         SpringApplication.run(CRMApplication.class, args);
-        System.out.println("(♥◠‿◠)ﾉﾞ  系统启动成功   ლ(´ڡ`ლ)ﾞ  \n" +
+        Base64.encodeToString(CipherUtils.generateNewKey(128, "AES").getEncoded());
+        System.out.println("系统启动成功 \n" +
                 " ██╗     ██╗   ██╗███████╗██╗███████╗███████╗██████╗ \n"+
                 " ██║     ██║   ██║██╔════╝██║██╔════╝██╔════╝██╔══██╗\n"+
                 " ██║     ██║   ██║███████╗██║█████╗  █████╗  ██████╔╝\n"+

@@ -1,6 +1,5 @@
 /**
  * 基于bootstrapTreeTable/bootstrap-table-treegrid修改
- * Copyright (c) 2019 ruoyi
  */
 (function($) {
     "use strict";
@@ -70,7 +69,7 @@
             var $rightToolbar = $('<div class="btn-group tool-right">');
             $toolbar.append($rightToolbar);
             target.parent().before($toolbar);
-            // ruoyi 是否显示检索信息
+            //  是否显示检索信息
             if (options.showSearch) {
                 var $searchBtn = $('<button class="btn btn-default btn-outline" type="button" aria-label="search" title="搜索"><i class="glyphicon glyphicon-search"></i></button>');
                 $rightToolbar.append($searchBtn);
@@ -235,7 +234,7 @@
                 var $thead = target.find("thead");
                 var $tbody = target.find("tbody");
                 var borderWidth = parseInt(target.css("border-left-width")) + parseInt(target.css("border-right-width"))
-                
+
                 $thead.css("width", $tbody.children(":first").width());
                 if(initFlag){
                     var resizeWaiter = false;
@@ -253,7 +252,7 @@
                     });
                 }
             }
-        
+
         }
         // 缓存并格式化数据
         var formatData = function(data) {
@@ -620,7 +619,7 @@
                 $input.prop("checked", '');
             }
         }
-        // ruoyi 解析数据，支持多层级访问
+        //  解析数据，支持多层级访问
         var getItemField = function (item, field) {
             var value = item;
 
@@ -633,7 +632,7 @@
             }
             return value;
         };
-        // ruoyi 发起对目标(target)函数的调用
+        //  发起对目标(target)函数的调用
         var calculateObjectValue = function (self, name, args, defaultValue) {
             var func = name;
 

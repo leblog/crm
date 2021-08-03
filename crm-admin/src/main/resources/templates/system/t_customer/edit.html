@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('修改客户')" />
+    <th:block th:include="include :: datetimepicker-css" />
+    <th:block th:include="include :: bootstrap-fileinput-css"/>
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-t_customer-edit" th:object="${tCustomer}">
+            <h4 class="form-header h4">客户信息</h4>
+            <input name="customerId" th:field="*{customerId}" type="hidden">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">商拓用户ID：</label>
+                <div class="col-sm-8">
+                    <input name="userId" th:field="*{userId}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label is-required">拜访时间：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="visitTime" th:value="${#dates.format(tCustomer.visitTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text" required>
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label is-required">门头照片：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="visitPhoto" th:field="*{visitPhoto}">
+                    <div class="file-loading">
+                        <input class="form-control file-upload" id="visitPhoto" name="file" type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label is-required">客户名称：</label>
+                <div class="col-sm-8">
+                    <input name="customerName" th:field="*{customerName}" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">门店类型(0综合店 1连锁店 )：</label>
+                <div class="col-sm-8">
+                    <select name="storesType" class="form-control m-b" th:with="type=${@dict.getType('customer_stores_type')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{storesType}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">门店大小(单位平方)：</label>
+                <div class="col-sm-8">
+                    <input name="storesSize" th:field="*{storesSize}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">门店员工数量(0:1-10, 1:11-20, 2:21-30,4:31-50, 5:51-100, 6:100以上)：</label>
+                <div class="col-sm-8">
+                    <select name="employeesNums" class="form-control m-b" th:with="type=${@dict.getType('customer_employees_nums')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{employeesNums}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">地区：</label>
+                <div class="col-sm-8">
+                    <input name="location" th:field="*{location}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">详细地址：</label>
+                <div class="col-sm-8">
+                    <input name="addressDesc" th:field="*{addressDesc}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">是否签署邀约函 (0:未签约, 1:已签约)：</label>
+                <div class="col-sm-8">
+                    <select name="isSigned" class="form-control m-b" th:with="type=${@dict.getType('customer_is_signed')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{isSigned}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">数据创建人：</label>
+                <div class="col-sm-8">
+                    <input name="founder" th:field="*{founder}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">现阶段跟进人：</label>
+                <div class="col-sm-8">
+                    <input name="follower" th:field="*{follower}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">法人/店长：</label>
+                <div class="col-sm-8">
+                    <input name="keyPerson" th:field="*{keyPerson}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">法人店长的联系方式：</label>
+                <div class="col-sm-8">
+                    <input name="keyPersonTel" th:field="*{keyPersonTel}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">客户满意度1-5个等级：</label>
+                <div class="col-sm-8">
+                    <input name="customerSatisfaction" th:field="*{customerSatisfaction}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">客户级别(0:普通客户1:战略合作伙伴2:大客户3:重点开发客户)：</label>
+                <div class="col-sm-8">
+                    <select name="customerLevel" class="form-control m-b" th:with="type=${@dict.getType('customer_level')}">
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{customerLevel}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">信用度：</label>
+                <div class="col-sm-8">
+                    <input name="credit" th:field="*{credit}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">进度：</label>
+                <div class="col-sm-8">
+                    <input name="progress" th:field="*{progress}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">小记：</label>
+                <div class="col-sm-8">
+                    <textarea name="reporter" class="form-control">[[*{reporter}]]</textarea>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">机会来源(同事介绍\官网\广告)：</label>
+                <div class="col-sm-8">
+                    <input name="customerSource" th:field="*{customerSource}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">备注：</label>
+                <div class="col-sm-8">
+                    <textarea name="remark" class="form-control">[[*{remark}]]</textarea>
+                </div>
+            </div>
+            <h4 class="form-header h4">客户的拜访记录信息</h4>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button type="button" class="btn btn-white btn-sm" onclick="addColumn()"><i class="fa fa-plus"> 增加</i></button>
+                    <button type="button" class="btn btn-white btn-sm" onclick="sub.delColumn()"><i class="fa fa-minus"> 删除</i></button>
+                    <div class="col-sm-12 select-table table-striped">
+                        <table id="bootstrap-table"></table>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <th:block th:include="include :: bootstrap-fileinput-js"/>
+    <script th:inline="javascript">
+        var prefix = ctx + "system/t_customer";
+        $("#form-t_customer-edit").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/edit", $('#form-t_customer-edit').serialize());
+            }
+        }
+
+        $("input[name='visitTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $(".file-upload").each(function (i) {
+            var val = $("input[name='" + this.id + "']").val()
+            $(this).fileinput({
+                'uploadUrl': ctx + 'common/upload',
+                initialPreviewAsData: true,
+                initialPreview: [val],
+                maxFileCount: 1,
+                autoReplace: true
+            }).on('fileuploaded', function (event, data, previewId, index) {
+                $("input[name='" + event.currentTarget.id + "']").val(data.response.url)
+            }).on('fileremoved', function (event, id, index) {
+                $("input[name='" + event.currentTarget.id + "']").val('')
+            })
+            $(this).fileinput('_initFileActions');
+        });
+
+        $(function() {
+            var options = {
+                data: [[${tCustomer.tCustomerContactList}]],
+                pagination: false,
+                showSearch: false,
+                showRefresh: false,
+                showToggle: false,
+                showColumns: false,
+                sidePagination: "client",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'index',
+                    align: 'center',
+                    title: "序号",
+                    formatter: function (value, row, index) {
+                    	var columnIndex = $.common.sprintf("<input type='hidden' name='index' value='%s'>", $.table.serialNumber(index));
+                    	return columnIndex + $.table.serialNumber(index);
+                    }
+                },
+                {
+                    field: 'userId',
+                    align: 'center',
+                    title: '销售ID',
+                    formatter: function(value, row, index) {
+                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].userId' value='%s'>", index, value);
+                        return html;
+                    }
+				},
+                {
+                    field: 'plan',
+                    align: 'center',
+                    title: '计划项',
+                    formatter: function(value, row, index) {
+                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].plan' value='%s'>", index, value);
+                        return html;
+                    }
+				},
+                {
+                    field: 'planTime',
+                    align: 'center',
+                    title: '计划时间',
+                    formatter: function(value, row, index) {
+                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].planTime' value='%s'>", index, value);
+                        return html;
+                    }
+				},
+                {
+                    field: 'result',
+                    align: 'center',
+                    title: '执行效果',
+                    formatter: function(value, row, index) {
+                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].result' value='%s'>", index, value);
+                        return html;
+                    }
+				},
+                {
+                    field: 'solution',
+                    align: 'center',
+                    title: '我的解决方案',
+                    formatter: function(value, row, index) {
+                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].solution' value='%s'>", index, value);
+                        return html;
+                    }
+				},
+                {
+                    field: 'delFlag',
+                    align: 'center',
+                    title: '删除标志',
+                    formatter: function(value, row, index) {
+                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].delFlag' value='%s'>", index, value);
+                        return html;
+                    }
+				},
+                {
+                    field: 'evaluation',
+                    align: 'center',
+                    title: '点评(经理的评价)',
+                    formatter: function(value, row, index) {
+                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].evaluation' value='%s'>", index, value);
+                        return html;
+                    }
+				},
+                {
+                    field: 'createTime',
+                    align: 'center',
+                    title: '创建时间',
+                    formatter: function(value, row, index) {
+                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].createTime' value='%s'>", index, value);
+                        return html;
+                    }
+				},
+                {
+                    field: 'createBy',
+                    align: 'center',
+                    title: '创建者',
+                    formatter: function(value, row, index) {
+                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].createBy' value='%s'>", index, value);
+                        return html;
+                    }
+				},
+                {
+                    field: 'evaluationBy',
+                    align: 'center',
+                    title: '点评人的姓名',
+                    formatter: function(value, row, index) {
+                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].evaluationBy' value='%s'>", index, value);
+                        return html;
+                    }
+				},
+                {
+                    field: 'evaluationTime',
+                    align: 'center',
+                    title: '点评时间',
+                    formatter: function(value, row, index) {
+                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].evaluationTime' value='%s'>", index, value);
+                        return html;
+                    }
+				},
+                {
+                    field: 'updateBy',
+                    align: 'center',
+                    title: '更新者',
+                    formatter: function(value, row, index) {
+                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].updateBy' value='%s'>", index, value);
+                        return html;
+                    }
+				},
+                {
+                    field: 'updateTime',
+                    align: 'center',
+                    title: '更新时间',
+                    formatter: function(value, row, index) {
+                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].updateTime' value='%s'>", index, value);
+                        return html;
+                    }
+				},
+                {
+                    field: 'remark',
+                    align: 'center',
+                    title: '备注',
+                    formatter: function(value, row, index) {
+                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].remark' value='%s'>", index, value);
+                        return html;
+                    }
+				
+                }]
+            };
+            $.table.init(options);
+        });
+
+        function addColumn() {
+            var count = $("#" + table.options.id).bootstrapTable('getData').length;
+            sub.editColumn();
+        	
+            $("#" + table.options.id).bootstrapTable('insertRow', {
+                index: count,
+                row: {
+                    index: $.table.serialNumber(count),
+                    userId: "",
+                    plan: "",
+                    planTime: "",
+                    result: "",
+                    solution: "",
+                    delFlag: "",
+                    evaluation: "",
+                    createTime: "",
+                    createBy: "",
+                    evaluationBy: "",
+                    evaluationTime: "",
+                    updateBy: "",
+                    updateTime: "",
+                    remark: ""
+        	    }
+            });
+        }
+    </script>
+</body>
+</html>

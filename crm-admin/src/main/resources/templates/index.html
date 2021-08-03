@@ -192,8 +192,8 @@
                 </div>
                 <ul class="nav navbar-top-links navbar-right welcome-message">
 
-                    <li><a data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="锁定屏幕" href="#" id="lockScreen"><i class="fa fa-lock"></i> 锁屏</a></li>
-	                <li><a data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="全屏显示" href="#" id="fullScreen"><i class="fa fa-arrows-alt"></i> 全屏</a></li>
+                    <!--<li><a data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="锁定屏幕" href="#" id="lockScreen"><i class="fa fa-lock"></i> 锁屏</a></li>
+	                <li><a data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="全屏显示" href="#" id="fullScreen"><i class="fa fa-arrows-alt"></i> 全屏</a></li>-->
                     <li class="dropdown user-menu">
 						<a href="javascript:void(0)" class="dropdown-toggle" data-hover="dropdown">
 							<img th:src="(${#strings.isEmpty(user.avatar)}) ? @{/img/profile.jpg} : @{${user.avatar}}" th:onerror="this.src='img/profile.jpg'" class="user-image">
@@ -208,14 +208,14 @@
 								<a onclick="resetPwd()">
 								<i class="fa fa-key"></i> 修改密码</a>
 							</li>
-							<li>
+							<!--<li>
 								<a onclick="switchSkin()">
 								<i class="fa fa-dashboard"></i> 切换主题</a>
-							</li>
-							<li>
+							</li>-->
+							<!--<li>
 								<a onclick="toggleMenu()">
 								<i class="fa fa-toggle-off"></i> 横向菜单</a>
-							</li>
+							</li>-->
 							<li class="divider"></li>
 							<li>
 								<a th:href="@{logout}">
@@ -249,7 +249,7 @@
         </div>
 
         <div th:if="${ignoreFooter}" class="footer">
-            <div class="pull-right">© [[${copyrightYear}]] RuoYi Copyright </div>
+            <div class="pull-right">© [[${copyrightYear}]] CRM 杭州星元生物科技有限公司 Copyright </div>
         </div>
     </div>
     <!--右侧部分结束-->

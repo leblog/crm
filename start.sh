@@ -1,5 +1,5 @@
 #!/bin/sh
-# author ruoyi
+# author lusifer
 # ./ry.sh start 启动
 # ./ry.sh stop 停止
 # ./ry.sh restart 重启
@@ -38,7 +38,7 @@ function start()
 function stop()
 {
     echo "Stop $AppName"
-	
+
 	PID=""
 	query(){
 		PID=`ps -ef |grep java|grep $AppName|grep -v grep|awk '{print $2}'`

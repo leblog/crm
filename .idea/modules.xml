@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/crm-admin/crm-admin.iml" filepath="$PROJECT_DIR$/crm-admin/crm-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crm-common/crm-common.iml" filepath="$PROJECT_DIR$/crm-common/crm-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crm-framework/crm-framework.iml" filepath="$PROJECT_DIR$/crm-framework/crm-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crm-generator/crm-generator.iml" filepath="$PROJECT_DIR$/crm-generator/crm-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crm-quartz/crm-quartz.iml" filepath="$PROJECT_DIR$/crm-quartz/crm-quartz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crm-system/crm-system.iml" filepath="$PROJECT_DIR$/crm-system/crm-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/crm-xy.iml" filepath="$PROJECT_DIR$/.idea/crm-xy.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="crm-system" />
+        <module name="crm-generator" />
+        <module name="crm-admin" />
+        <module name="crm-framework" />
+        <module name="crm-quartz" />
+        <module name="crm-common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="crm-admin" target="1.8" />
+      <module name="crm-common" target="1.8" />
+      <module name="crm-framework" target="1.8" />
+      <module name="crm-generator" target="1.8" />
+      <module name="crm-quartz" target="1.8" />
+      <module name="crm-system" target="1.8" />
+      <module name="crm-xy" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

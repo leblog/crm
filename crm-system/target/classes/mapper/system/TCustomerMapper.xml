@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xy.system.mapper.TCustomerMapper">
+
+    <resultMap type="TCustomer" id="TCustomerResult">
+        <result property="customerId"    column="customer_id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="visitTime"    column="visit_time"    />
+        <result property="visitPhoto"    column="visit_photo"    />
+        <result property="customerName"    column="customer_name"    />
+        <result property="storesType"    column="stores_type"    />
+        <result property="storesSize"    column="stores_size"    />
+        <result property="employeesNums"    column="employees_nums"    />
+        <result property="location"    column="location"    />
+        <result property="addressDesc"    column="address_desc"    />
+        <result property="isSigned"    column="is_signed"    />
+        <result property="founder"    column="founder"    />
+        <result property="follower"    column="follower"    />
+        <result property="keyPerson"    column="key_person"    />
+        <result property="keyPersonTel"    column="key_person_tel"    />
+        <result property="customerSatisfaction"    column="customer_satisfaction"    />
+        <result property="customerLevel"    column="customer_level"    />
+        <result property="credit"    column="credit"    />
+        <result property="progress"    column="progress"    />
+        <result property="reporter"    column="reporter"    />
+        <result property="customerSource"    column="customer_source"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <resultMap id="TCustomerTCustomerContactResult" type="TCustomer" extends="TCustomerResult">
+        <collection property="tCustomerContactList" notNullColumn="sub_contact_id" javaType="java.util.List" resultMap="TCustomerContactResult" />
+    </resultMap>
+
+    <resultMap type="TCustomerContact" id="TCustomerContactResult">
+        <result property="contactId"    column="sub_contact_id"    />
+        <result property="userId"    column="sub_user_id"    />
+        <result property="plan"    column="sub_plan"    />
+        <result property="planTime"    column="sub_plan_time"    />
+        <result property="result"    column="sub_result"    />
+        <result property="solution"    column="sub_solution"    />
+        <result property="delFlag"    column="sub_del_flag"    />
+        <result property="evaluation"    column="sub_evaluation"    />
+        <result property="createTime"    column="sub_create_time"    />
+        <result property="createBy"    column="sub_create_by"    />
+        <result property="evaluationBy"    column="sub_evaluation_by"    />
+        <result property="evaluationTime"    column="sub_evaluation_time"    />
+        <result property="updateBy"    column="sub_update_by"    />
+        <result property="updateTime"    column="sub_update_time"    />
+        <result property="remark"    column="sub_remark"    />
+    </resultMap>
+
+    <sql id="selectTCustomerVo">
+        select customer_id, user_id, visit_time, visit_photo, customer_name, stores_type, stores_size, employees_nums, location, address_desc, is_signed, founder, follower, key_person, key_person_tel, customer_satisfaction, customer_level, credit, progress, reporter, customer_source, del_flag, create_by, create_time, update_by, update_time, remark from t_customer
+    </sql>
+
+    <select id="selectTCustomerList" parameterType="TCustomer" resultMap="TCustomerResult">
+        <!--<include refid="selectTCustomerVo"/>-->
+        /*逻辑删除的查询*/
+        <!--<where>-->
+            select customer_id, user_id, visit_time, visit_photo, customer_name, stores_type, stores_size, employees_nums, location, address_desc, is_signed, founder, follower, key_person, key_person_tel, customer_satisfaction, customer_level, credit, progress, reporter, customer_source, del_flag, create_by, create_time, update_by, update_time, remark
+            from t_customer t
+            where t.del_flag = '0'
+            <if test="visitTime != null "> and visit_time = #{visitTime}</if>
+            <if test="customerName != null  and customerName != ''"> and customer_name like concat('%', #{customerName}, '%')</if>
+            <if test="storesType != null  and storesType != ''"> and stores_type = #{storesType}</if>
+            <if test="storesSize != null  and storesSize != ''"> and stores_size = #{storesSize}</if>
+            <if test="employeesNums != null  and employeesNums != ''"> and employees_nums = #{employeesNums}</if>
+            <if test="location != null  and location != ''"> and location = #{location}</if>
+            <if test="addressDesc != null  and addressDesc != ''"> and address_desc = #{addressDesc}</if>
+            <if test="isSigned != null  and isSigned != ''"> and is_signed = #{isSigned}</if>
+            <if test="founder != null  and founder != ''"> and founder = #{founder}</if>
+            <if test="follower != null  and follower != ''"> and follower = #{follower}</if>
+            <if test="keyPerson != null  and keyPerson != ''"> and key_person = #{keyPerson}</if>
+            <if test="keyPersonTel != null "> and key_person_tel = #{keyPersonTel}</if>
+            <if test="customerSatisfaction != null  and customerSatisfaction != ''"> and customer_satisfaction = #{customerSatisfaction}</if>
+            <if test="customerLevel != null  and customerLevel != ''"> and customer_level = #{customerLevel}</if>
+            <if test="credit != null  and credit != ''"> and credit = #{credit}</if>
+            <if test="progress != null  and progress != ''"> and progress = #{progress}</if>
+            <if test="reporter != null  and reporter != ''"> and reporter = #{reporter}</if>
+            <if test="customerSource != null  and customerSource != ''"> and customer_source = #{customerSource}</if>
+        <!--</where>-->
+    </select>
+
+    <select id="selectTCustomerById" parameterType="Long" resultMap="TCustomerTCustomerContactResult">
+        select a.customer_id, a.user_id, a.visit_time, a.visit_photo, a.customer_name, a.stores_type, a.stores_size, a.employees_nums, a.location, a.address_desc, a.is_signed, a.founder, a.follower, a.key_person, a.key_person_tel, a.customer_satisfaction, a.customer_level, a.credit, a.progress, a.reporter, a.customer_source, a.del_flag, a.create_by, a.create_time, a.update_by, a.update_time, a.remark,
+            b.contact_id as sub_contact_id, b.user_id as sub_user_id, b.plan as sub_plan, b.plan_time as sub_plan_time, b.result as sub_result, b.solution as sub_solution, b.del_flag as sub_del_flag, b.evaluation as sub_evaluation, b.create_time as sub_create_time, b.create_by as sub_create_by, b.evaluation_by as sub_evaluation_by, b.evaluation_time as sub_evaluation_time, b.update_by as sub_update_by, b.update_time as sub_update_time, b.remark as sub_remark
+        from t_customer a
+        left join t_customer_contact b on b.contact_id = a.customer_id
+        /*原文*/
+        /*where a.customer_id = #{customerId}*/
+        /*逻辑删除的查询*/
+        where a.del_flag = '0' and a.customer_id = #{customerId}
+    </select>
+
+    <insert id="insertTCustomer" parameterType="TCustomer" useGeneratedKeys="true" keyProperty="customerId">
+        insert into t_customer
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="visitTime != null">visit_time,</if>
+            <if test="visitPhoto != null and visitPhoto != ''">visit_photo,</if>
+            <if test="customerName != null and customerName != ''">customer_name,</if>
+            <if test="storesType != null">stores_type,</if>
+            <if test="storesSize != null">stores_size,</if>
+            <if test="employeesNums != null">employees_nums,</if>
+            <if test="location != null">location,</if>
+            <if test="addressDesc != null">address_desc,</if>
+            <if test="isSigned != null">is_signed,</if>
+            <if test="founder != null">founder,</if>
+            <if test="follower != null">follower,</if>
+            <if test="keyPerson != null">key_person,</if>
+            <if test="keyPersonTel != null">key_person_tel,</if>
+            <if test="customerSatisfaction != null">customer_satisfaction,</if>
+            <if test="customerLevel != null">customer_level,</if>
+            <if test="credit != null">credit,</if>
+            <if test="progress != null">progress,</if>
+            <if test="reporter != null">reporter,</if>
+            <if test="customerSource != null">customer_source,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="visitTime != null">#{visitTime},</if>
+            <if test="visitPhoto != null and visitPhoto != ''">#{visitPhoto},</if>
+            <if test="customerName != null and customerName != ''">#{customerName},</if>
+            <if test="storesType != null">#{storesType},</if>
+            <if test="storesSize != null">#{storesSize},</if>
+            <if test="employeesNums != null">#{employeesNums},</if>
+            <if test="location != null">#{location},</if>
+            <if test="addressDesc != null">#{addressDesc},</if>
+            <if test="isSigned != null">#{isSigned},</if>
+            <if test="founder != null">#{founder},</if>
+            <if test="follower != null">#{follower},</if>
+            <if test="keyPerson != null">#{keyPerson},</if>
+            <if test="keyPersonTel != null">#{keyPersonTel},</if>
+            <if test="customerSatisfaction != null">#{customerSatisfaction},</if>
+            <if test="customerLevel != null">#{customerLevel},</if>
+            <if test="credit != null">#{credit},</if>
+            <if test="progress != null">#{progress},</if>
+            <if test="reporter != null">#{reporter},</if>
+            <if test="customerSource != null">#{customerSource},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTCustomer" parameterType="TCustomer">
+        update t_customer
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="visitTime != null">visit_time = #{visitTime},</if>
+            <if test="visitPhoto != null and visitPhoto != ''">visit_photo = #{visitPhoto},</if>
+            <if test="customerName != null and customerName != ''">customer_name = #{customerName},</if>
+            <if test="storesType != null">stores_type = #{storesType},</if>
+            <if test="storesSize != null">stores_size = #{storesSize},</if>
+            <if test="employeesNums != null">employees_nums = #{employeesNums},</if>
+            <if test="location != null">location = #{location},</if>
+            <if test="addressDesc != null">address_desc = #{addressDesc},</if>
+            <if test="isSigned != null">is_signed = #{isSigned},</if>
+            <if test="founder != null">founder = #{founder},</if>
+            <if test="follower != null">follower = #{follower},</if>
+            <if test="keyPerson != null">key_person = #{keyPerson},</if>
+            <if test="keyPersonTel != null">key_person_tel = #{keyPersonTel},</if>
+            <if test="customerSatisfaction != null">customer_satisfaction = #{customerSatisfaction},</if>
+            <if test="customerLevel != null">customer_level = #{customerLevel},</if>
+            <if test="credit != null">credit = #{credit},</if>
+            <if test="progress != null">progress = #{progress},</if>
+            <if test="reporter != null">reporter = #{reporter},</if>
+            <if test="customerSource != null">customer_source = #{customerSource},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where customer_id = #{customerId}
+    </update>
+    <!--根据ID删除-->
+    <delete id="deleteTCustomerById" parameterType="Long">
+        /*delete from t_customer where customer_id = #{customerId}*/
+        update t_customer set del_flag = '2' where customer_id = #{customerId}
+    </delete>
+    <!--批量删除-->
+    <delete id="deleteTCustomerByIds" parameterType="String">
+        /*delete from t_customer where customer_id in*/
+        /*逻辑删除*/
+        update t_customer set del_flag = '2' where customer_id in
+        <foreach item="customerId" collection="array" open="(" separator="," close=")">
+            #{customerId}
+        </foreach>
+    </delete>
+    <!--子表批量删除-->
+    <delete id="deleteTCustomerContactByContactIds" parameterType="String">
+        delete from t_customer_contact where contact_id in
+        <foreach item="contactId" collection="array" open="(" separator="," close=")">
+            #{contactId}
+        </foreach>
+    </delete>
+    <!--子表单个删除-->
+    <delete id="deleteTCustomerContactByContactId" parameterType="Long">
+        delete from t_customer_contact where contact_id = #{contactId}
+    </delete>
+
+    <insert id="batchTCustomerContact">
+        insert into t_customer_contact( contact_id, user_id, plan, plan_time, result, solution, del_flag, evaluation, create_time, create_by, evaluation_by, evaluation_time, update_by, update_time, remark) values
+		<foreach item="item" index="index" collection="list" separator=",">
+            ( #{item.contactId}, #{item.userId}, #{item.plan}, #{item.planTime}, #{item.result}, #{item.solution}, #{item.delFlag}, #{item.evaluation}, #{item.createTime}, #{item.createBy}, #{item.evaluationBy}, #{item.evaluationTime}, #{item.updateBy}, #{item.updateTime}, #{item.remark})
+        </foreach>
+    </insert>
+
+</mapper>

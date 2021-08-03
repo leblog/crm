@@ -1,6 +1,6 @@
 /**
  * 首页方法封装处理
- * Copyright (c) 2019 ruoyi
+ * Copyright (c) 2019
  */
 layer.config({
     extend: 'moon/style.css',
@@ -83,7 +83,7 @@ function syncMenuTab(dataId) {
             $(".nav ul li, .nav li").removeClass("selected");
             $dataObj.parent("li").addClass("selected");
             setIframeUrl(dataId);
-            
+
             // 顶部菜单同步处理
             var tabStr = $dataObj.parents(".tab-pane").attr("id");
             if ($.common.isNotEmpty(tabStr)) {
@@ -323,7 +323,7 @@ $(function() {
     }
 
     function menuBlank() {
-    	// 新窗口打开外网以http://开头，如http://ruoyi.vip
+    	// 新窗口打开外网以http://开头，
     	var dataUrl = $(this).attr('href');
     	window.open(dataUrl);
     	return false;
@@ -498,7 +498,7 @@ $(function() {
     $('#fullScreen').on('click', function () {
     	$(document).toggleFullScreen();
     });
-    
+
     // 锁定屏幕
     $('#lockScreen').on('click', function () {
     	storage.set('lockPath', $('.page-tabs-content').find('.active').attr('data-id'));

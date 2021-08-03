@@ -7,14 +7,14 @@
      <div class="container-div">
 		<div class="row">
 			<div class="col-sm-12 select-table table-striped">
-				<table id="bootstrap-table" data-page-size="10" 
+				<table id="bootstrap-table" data-page-size="10"
 				       data-show-custom-view="true" data-custom-view="customViewFormatter"
                        data-show-custom-view-button="true">
                 </table>
 			</div>
 		</div>
 	</div>
-	
+
     <template id="profileTemplate">
         <div class="col-sm-4">
             <div class="contact-box">
@@ -29,7 +29,7 @@
                         <h3><strong>%userCode%</strong></h3>
                         <p><i class="fa fa-jpy"></i> %userBalance%</p>
                         <address>
-                        <strong>RuoYi, Inc.</strong><br>
+                        <strong>Lusifer, Inc.</strong><br>
                         E-mail: %userEmail%<br>
                         <abbr title="Phone">Tel:</abbr> %userPhone%
                        </address>
@@ -58,23 +58,23 @@
 		            checkbox: true
 		        },
 				{
-					field : 'userId', 
+					field : 'userId',
 					title : '用户ID'
 				},
 				{
-					field : 'userCode', 
+					field : 'userCode',
 					title : '用户编号'
 				},
 				{
-					field : 'userName', 
+					field : 'userName',
 					title : '用户姓名'
 				},
 				{
-					field : 'userPhone', 
+					field : 'userPhone',
 					title : '用户手机'
 				},
 				{
-					field : 'userEmail', 
+					field : 'userEmail',
 					title : '用户邮箱'
 				},
 				{
@@ -102,13 +102,13 @@
             };
             $.table.init(options);
         });
-        
+
         function customViewFormatter (data) {
             var template = $('#profileTemplate').html()
             var view = ''
             $.each(data, function (i, row) {
               view += template.replace('%userCode%', row.userCode)
-                .replace('%IMAGE%', "http://demo.ruoyi.vip/img/profile.jpg")
+                .replace('%IMAGE%', "https://ali.frist-art.cn/wx/tianyan/photo/favicon.png")
                 .replace('%userName%', row.userName)
                 .replace('%userEmail%', row.userEmail)
                 .replace('%userPhone%', row.userPhone)
