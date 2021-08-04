@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import com.xy.common.annotation.Log;
-import com.xy.common.config.RuoYiConfig;
+import com.xy.common.config.LusiferConfig;
 import com.xy.common.constant.UserConstants;
 import com.xy.common.core.controller.BaseController;
 import com.xy.common.core.domain.AjaxResult;
@@ -27,7 +27,7 @@ import com.xy.system.service.ISysUserService;
 
 /**
  * 个人信息 业务处理
- * 
+ *
  * @author lusifer
  */
 @Controller
@@ -40,7 +40,7 @@ public class SysProfileController extends BaseController
 
     @Autowired
     private ISysUserService userService;
-    
+
     @Autowired
     private SysPasswordService passwordService;
 
@@ -168,7 +168,7 @@ public class SysProfileController extends BaseController
         {
             if (!file.isEmpty())
             {
-                String avatar = FileUploadUtils.upload(RuoYiConfig.getAvatarPath(), file);
+                String avatar = FileUploadUtils.upload(LusiferConfig.getAvatarPath(), file);
                 currentUser.setAvatar(avatar);
                 if (userService.updateUserInfo(currentUser) > 0)
                 {

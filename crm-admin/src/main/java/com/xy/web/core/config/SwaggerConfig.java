@@ -3,7 +3,7 @@ package com.xy.web.core.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.xy.common.config.RuoYiConfig;
+import com.xy.common.config.LusiferConfig;
 import io.swagger.annotations.ApiOperation;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -59,9 +59,9 @@ public class SwaggerConfig
                 // 描述
                 .description("描述：用于管理星元生物旗下公司的人员信息,具体包括部门,人员模块,角色权限")
                 // 作者信息
-                .contact(new Contact(RuoYiConfig.getName(), null, null))
+                .contact(new Contact(LusiferConfig.getName(), null, null))
                 // 版本
-                .version("版本号:" + RuoYiConfig.getVersion())
+                .version("版本号:" + LusiferConfig.getVersion())
                 .build();
     }
 }

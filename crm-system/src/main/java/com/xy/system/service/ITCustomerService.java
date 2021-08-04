@@ -5,15 +5,15 @@ import com.xy.system.domain.TCustomer;
 
 /**
  * 客户Service接口
- * 
+ *
  * @author lusifer
  * @date 2021-08-02
  */
-public interface ITCustomerService 
+public interface ITCustomerService
 {
     /**
      * 查询客户
-     * 
+     *
      * @param customerId 客户ID
      * @return 客户
      */
@@ -21,7 +21,7 @@ public interface ITCustomerService
 
     /**
      * 查询客户列表
-     * 
+     *
      * @param tCustomer 客户
      * @return 客户集合
      */
@@ -29,7 +29,7 @@ public interface ITCustomerService
 
     /**
      * 新增客户
-     * 
+     *
      * @param tCustomer 客户
      * @return 结果
      */
@@ -37,7 +37,7 @@ public interface ITCustomerService
 
     /**
      * 修改客户
-     * 
+     *
      * @param tCustomer 客户
      * @return 结果
      */
@@ -45,7 +45,7 @@ public interface ITCustomerService
 
     /**
      * 批量删除客户
-     * 
+     *
      * @param ids 需要删除的数据ID
      * @return 结果
      */
@@ -53,7 +53,7 @@ public interface ITCustomerService
 
     /**
      * 删除客户信息
-     * 
+     *
      * @param customerId 客户ID
      * @return 结果
      */

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.xy.common.config.RuoYiConfig;
+import com.xy.common.config.LusiferConfig;
 import com.xy.common.constant.ShiroConstants;
 import com.xy.common.core.controller.BaseController;
 import com.xy.common.core.domain.AjaxResult;
@@ -29,7 +29,7 @@ import com.xy.system.service.ISysMenuService;
 
 /**
  * 首页 业务处理
- * 
+ *
  * @author lusifer
  */
 @Controller
@@ -57,8 +57,8 @@ public class SysIndexController extends BaseController
         mmap.put("sideTheme", configService.selectConfigByKey("sys.index.sideTheme"));
         mmap.put("skinName", configService.selectConfigByKey("sys.index.skinName"));
         mmap.put("ignoreFooter", configService.selectConfigByKey("sys.index.ignoreFooter"));
-        mmap.put("copyrightYear", RuoYiConfig.getCopyrightYear());
-        mmap.put("demoEnabled", RuoYiConfig.isDemoEnabled());
+        mmap.put("copyrightYear", LusiferConfig.getCopyrightYear());
+        mmap.put("demoEnabled", LusiferConfig.isDemoEnabled());
         mmap.put("isDefaultModifyPwd", initPasswordIsModify(user.getPwdUpdateDate()));
         mmap.put("isPasswordExpired", passwordIsExpiration(user.getPwdUpdateDate()));
 
@@ -122,11 +122,11 @@ public class SysIndexController extends BaseController
         CookieUtils.setCookie(response, "nav-style", style);
     }
 
-    // 系统介绍
+    // 主页/数据
     @GetMapping("/system/main")
     public String main(ModelMap mmap)
     {
-        mmap.put("version", RuoYiConfig.getVersion());
+        mmap.put("version", LusiferConfig.getVersion());
         return "main";
     }
 

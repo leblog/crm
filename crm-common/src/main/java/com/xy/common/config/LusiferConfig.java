@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @ConfigurationProperties(prefix = "crm")
-public class RuoYiConfig
+public class LusiferConfig
 {
-    /** 项目名称 */
+    /** 名称 */
     private static String name;
 
     /** 版本 */
     private static String version;
 
-    /** 版权年份 */
+    /** 年份 */
     private static String copyrightYear;
 
     /** 实例演示开关 */
@@ -37,7 +37,7 @@ public class RuoYiConfig
 
     public void setName(String name)
     {
-        RuoYiConfig.name = name;
+        LusiferConfig.name = name;
     }
 
     public static String getVersion()
@@ -47,7 +47,7 @@ public class RuoYiConfig
 
     public void setVersion(String version)
     {
-        RuoYiConfig.version = version;
+        LusiferConfig.version = version;
     }
 
     public static String getCopyrightYear()
@@ -57,7 +57,7 @@ public class RuoYiConfig
 
     public void setCopyrightYear(String copyrightYear)
     {
-        RuoYiConfig.copyrightYear = copyrightYear;
+        LusiferConfig.copyrightYear = copyrightYear;
     }
 
     public static boolean isDemoEnabled()
@@ -67,7 +67,7 @@ public class RuoYiConfig
 
     public void setDemoEnabled(boolean demoEnabled)
     {
-        RuoYiConfig.demoEnabled = demoEnabled;
+        LusiferConfig.demoEnabled = demoEnabled;
     }
 
     public static String getProfile()
@@ -77,7 +77,7 @@ public class RuoYiConfig
 
     public void setProfile(String profile)
     {
-        RuoYiConfig.profile = profile;
+        LusiferConfig.profile = profile;
     }
 
     public static boolean isAddressEnabled()
@@ -87,7 +87,7 @@ public class RuoYiConfig
 
     public void setAddressEnabled(boolean addressEnabled)
     {
-        RuoYiConfig.addressEnabled = addressEnabled;
+        LusiferConfig.addressEnabled = addressEnabled;
     }
 
     /**

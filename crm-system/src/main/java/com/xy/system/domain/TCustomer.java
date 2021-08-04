@@ -14,6 +14,7 @@ import com.xy.common.core.domain.BaseEntity;
  * @author lusifer
  * @date 2021-08-02
  */
+
 public class TCustomer extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
@@ -26,8 +27,8 @@ public class TCustomer extends BaseEntity
     private Long userId;
 
     /** 拜访时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "拜访时间", width = 30, dateFormat = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Excel(name = "拜访时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss")
     private Date visitTime;
 
     /** 门头照片 */
@@ -47,7 +48,7 @@ public class TCustomer extends BaseEntity
     private String storesSize;
 
     /** 门店员工数量(0:1-10, 1:11-20, 2:21-30,4:31-50, 5:51-100, 6:100以上) */
-    @Excel(name = "门店员工数量")
+    @Excel(name = "门店员工数量",readConverterExp="10=1-10人, 1=11-20人, 2=21-30人,4=31-50人, 5=51-100人, 6=100人以上", prompt="请填对应的数字")
     private String employeesNums;
 
     /** 地区 */

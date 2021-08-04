@@ -18,13 +18,18 @@ public class CRMApplication
     {
         // System.setProperty("spring.devtools.restart.enabled", "false");
         SpringApplication.run(CRMApplication.class, args);
-        Base64.encodeToString(CipherUtils.generateNewKey(128, "AES").getEncoded());
-        System.out.println("系统启动成功 \n" +
+        /**
+         * 生成秘钥-swaggerUI-接口请求使用
+         */
+        //String le = Base64.encodeToString(CipherUtils.generateNewKey(128, "AES").getEncoded());
+        //System.out.println("我是秘钥"+le);
+        System.out.println(
                 " ██╗     ██╗   ██╗███████╗██╗███████╗███████╗██████╗ \n"+
                 " ██║     ██║   ██║██╔════╝██║██╔════╝██╔════╝██╔══██╗\n"+
                 " ██║     ██║   ██║███████╗██║█████╗  █████╗  ██████╔╝\n"+
                 " ██║     ██║   ██║╚════██║██║██╔══╝  ██╔══╝  ██╔══██╗\n"+
                 " ███████╗╚██████╔╝███████║██║██║     ███████╗██║  ██║\n"+
-                " ╚══════╝ ╚═════╝ ╚══════╝╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝");
+                " ╚══════╝ ╚═════╝ ╚══════╝╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝"
+        );
     }
 }

@@ -61,9 +61,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </sql>
 
     <select id="selectTCustomerList" parameterType="TCustomer" resultMap="TCustomerResult">
-        <!--<include refid="selectTCustomerVo"/>-->
-        /*逻辑删除的查询*/
-        <!--<where>-->
             select customer_id, user_id, visit_time, visit_photo, customer_name, stores_type, stores_size, employees_nums, location, address_desc, is_signed, founder, follower, key_person, key_person_tel, customer_satisfaction, customer_level, credit, progress, reporter, customer_source, del_flag, create_by, create_time, update_by, update_time, remark
             from t_customer t
             where t.del_flag = '0'
@@ -84,8 +81,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="credit != null  and credit != ''"> and credit = #{credit}</if>
             <if test="progress != null  and progress != ''"> and progress = #{progress}</if>
             <if test="reporter != null  and reporter != ''"> and reporter = #{reporter}</if>
-            <if test="customerSource != null  and customerSource != ''"> and customer_source = #{customerSource}</if>
-        <!--</where>-->
+
     </select>
 
     <select id="selectTCustomerById" parameterType="Long" resultMap="TCustomerTCustomerContactResult">
@@ -93,9 +89,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             b.contact_id as sub_contact_id, b.user_id as sub_user_id, b.plan as sub_plan, b.plan_time as sub_plan_time, b.result as sub_result, b.solution as sub_solution, b.del_flag as sub_del_flag, b.evaluation as sub_evaluation, b.create_time as sub_create_time, b.create_by as sub_create_by, b.evaluation_by as sub_evaluation_by, b.evaluation_time as sub_evaluation_time, b.update_by as sub_update_by, b.update_time as sub_update_time, b.remark as sub_remark
         from t_customer a
         left join t_customer_contact b on b.contact_id = a.customer_id
-        /*原文*/
-        /*where a.customer_id = #{customerId}*/
-        /*逻辑删除的查询*/
         where a.del_flag = '0' and a.customer_id = #{customerId}
     </select>
 
@@ -191,6 +184,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </trim>
         where customer_id = #{customerId}
     </update>
+    <!--where t.del_flag = '0' and customer_id = #{customerId}-->
+    <!--<if test="delFlag != null">del_flag = #{delFlag},</if>-->
     <!--根据ID删除-->
     <delete id="deleteTCustomerById" parameterType="Long">
         /*delete from t_customer where customer_id = #{customerId}*/

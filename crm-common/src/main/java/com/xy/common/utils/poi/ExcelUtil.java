@@ -49,7 +49,7 @@ import com.xy.common.annotation.Excel;
 import com.xy.common.annotation.Excel.ColumnType;
 import com.xy.common.annotation.Excel.Type;
 import com.xy.common.annotation.Excels;
-import com.xy.common.config.RuoYiConfig;
+import com.xy.common.config.LusiferConfig;
 import com.xy.common.core.domain.AjaxResult;
 import com.xy.common.core.text.Convert;
 import com.xy.common.exception.BusinessException;
@@ -937,7 +937,7 @@ public class ExcelUtil<T>
      */
     public String getAbsoluteFile(String filename)
     {
-        String downloadPath = RuoYiConfig.getDownloadPath() + filename;
+        String downloadPath = LusiferConfig.getDownloadPath() + filename;
         File desc = new File(downloadPath);
         if (!desc.getParentFile().exists())
         {

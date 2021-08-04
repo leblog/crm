@@ -69,6 +69,19 @@ public class TCustomerController extends BaseController
     }
 
     /**
+     * 导入客户表
+     */
+    /*@PostMapping("/importData")
+    @ResponseBody
+    public AjaxResult importData(MultipartFile file, boolean updateSupport) throws Exception
+    {
+        ExcelUtil<SysUser> util = new ExcelUtil<SysUser>(SysUser.class);
+        List<SysUser> userList = util.importExcel(file.getInputStream());
+        String operName = ShiroUtils.getSysUser().getLoginName();
+        String message = userService.importUser(userList, updateSupport, operName);
+        return AjaxResult.success(message);
+    }*/
+    /**
      * 新增客户
      */
     @GetMapping("/add")

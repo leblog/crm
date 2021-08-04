@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import com.xy.common.config.RuoYiConfig;
+import com.xy.common.config.LusiferConfig;
 import com.xy.common.config.ServerConfig;
 import com.xy.common.constant.Constants;
 import com.xy.common.core.domain.AjaxResult;
@@ -24,7 +24,7 @@ import com.xy.common.utils.file.FileUtils;
 
 /**
  * 通用请求处理
- * 
+ *
  * @author lusifer
  */
 @Controller
@@ -37,7 +37,7 @@ public class CommonController
 
     /**
      * 通用下载请求
-     * 
+     *
      * @param fileName 文件名称
      * @param delete 是否删除
      */
@@ -51,7 +51,7 @@ public class CommonController
                 throw new Exception(StringUtils.format("文件名称({})非法，不允许下载。 ", fileName));
             }
             String realFileName = System.currentTimeMillis() + fileName.substring(fileName.indexOf("_") + 1);
-            String filePath = RuoYiConfig.getDownloadPath() + fileName;
+            String filePath = LusiferConfig.getDownloadPath() + fileName;
 
             response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
             FileUtils.setAttachmentResponseHeader(response, realFileName);
@@ -77,7 +77,7 @@ public class CommonController
         try
         {
             // 上传文件路径
-            String filePath = RuoYiConfig.getUploadPath();
+            String filePath = LusiferConfig.getUploadPath();
             // 上传并返回新文件名称
             String fileName = FileUploadUtils.upload(filePath, file);
             String url = serverConfig.getUrl() + fileName;
@@ -102,7 +102,7 @@ public class CommonController
         try
         {
             // 上传文件路径
-            String filePath = RuoYiConfig.getUploadPath();
+            String filePath = LusiferConfig.getUploadPath();
             List<FileInfo> fileInfos = new LinkedList<FileInfo>();
             for (MultipartFile file : files)
             {
@@ -133,7 +133,7 @@ public class CommonController
                 throw new Exception(StringUtils.format("资源文件({})非法，不允许下载。 ", resource));
             }
             // 本地资源路径
-            String localPath = RuoYiConfig.getProfile();
+            String localPath = LusiferConfig.getProfile();
             // 数据库资源地址
             String downloadPath = localPath + StringUtils.substringAfter(resource, Constants.RESOURCE_PREFIX);
             // 下载名称

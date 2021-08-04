@@ -10,22 +10,22 @@
         <form class="form-horizontal m" id="form-t_customer-edit" th:object="${tCustomer}">
             <h4 class="form-header h4">客户信息</h4>
             <input name="customerId" th:field="*{customerId}" type="hidden">
-            <div class="form-group">    
+            <div class="form-group">
                 <label class="col-sm-3 control-label">商拓用户ID：</label>
                 <div class="col-sm-8">
                     <input name="userId" th:field="*{userId}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">    
+            <div class="form-group">
                 <label class="col-sm-3 control-label is-required">拜访时间：</label>
                 <div class="col-sm-8">
                     <div class="input-group date">
-                        <input name="visitTime" th:value="${#dates.format(tCustomer.visitTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text" required>
+                        <input name="visitTime" th:value="${#dates.format(tCustomer.visitTime, 'yyyy-MM-dd HH:mm:ss')}" class="form-control" placeholder="yyyy-MM-dd" type="text" required>
                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                     </div>
                 </div>
             </div>
-            <div class="form-group">    
+            <div class="form-group">
                 <label class="col-sm-3 control-label is-required">门头照片：</label>
                 <div class="col-sm-8">
                     <input type="hidden" name="visitPhoto" th:field="*{visitPhoto}">
@@ -34,99 +34,99 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">    
+            <div class="form-group">
                 <label class="col-sm-3 control-label is-required">客户名称：</label>
                 <div class="col-sm-8">
                     <input name="customerName" th:field="*{customerName}" class="form-control" type="text" required>
                 </div>
             </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">门店类型(0综合店 1连锁店 )：</label>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">门店类型：</label>
                 <div class="col-sm-8">
                     <select name="storesType" class="form-control m-b" th:with="type=${@dict.getType('customer_stores_type')}">
                         <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{storesType}"></option>
                     </select>
                 </div>
             </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">门店大小(单位平方)：</label>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">门店大小：</label>
                 <div class="col-sm-8">
                     <input name="storesSize" th:field="*{storesSize}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">门店员工数量(0:1-10, 1:11-20, 2:21-30,4:31-50, 5:51-100, 6:100以上)：</label>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">门店员工数量：</label>
                 <div class="col-sm-8">
                     <select name="employeesNums" class="form-control m-b" th:with="type=${@dict.getType('customer_employees_nums')}">
                         <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{employeesNums}"></option>
                     </select>
                 </div>
             </div>
-            <div class="form-group">    
+            <div class="form-group">
                 <label class="col-sm-3 control-label">地区：</label>
                 <div class="col-sm-8">
                     <input name="location" th:field="*{location}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">    
+            <div class="form-group">
                 <label class="col-sm-3 control-label">详细地址：</label>
                 <div class="col-sm-8">
                     <input name="addressDesc" th:field="*{addressDesc}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">是否签署邀约函 (0:未签约, 1:已签约)：</label>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">是否签署邀约函：</label>
                 <div class="col-sm-8">
                     <select name="isSigned" class="form-control m-b" th:with="type=${@dict.getType('customer_is_signed')}">
                         <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{isSigned}"></option>
                     </select>
                 </div>
             </div>
-            <div class="form-group">    
+            <div class="form-group">
                 <label class="col-sm-3 control-label">数据创建人：</label>
                 <div class="col-sm-8">
                     <input name="founder" th:field="*{founder}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">    
+            <div class="form-group">
                 <label class="col-sm-3 control-label">现阶段跟进人：</label>
                 <div class="col-sm-8">
                     <input name="follower" th:field="*{follower}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">法人/店长：</label>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">KP姓名：</label>
                 <div class="col-sm-8">
                     <input name="keyPerson" th:field="*{keyPerson}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">法人店长的联系方式：</label>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">KP联系方式：</label>
                 <div class="col-sm-8">
                     <input name="keyPersonTel" th:field="*{keyPersonTel}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">客户满意度1-5个等级：</label>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">客户满意度：</label>
                 <div class="col-sm-8">
                     <input name="customerSatisfaction" th:field="*{customerSatisfaction}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">客户级别(0:普通客户1:战略合作伙伴2:大客户3:重点开发客户)：</label>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">客户级别：</label>
                 <div class="col-sm-8">
                     <select name="customerLevel" class="form-control m-b" th:with="type=${@dict.getType('customer_level')}">
                         <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{customerLevel}"></option>
                     </select>
                 </div>
             </div>
-            <div class="form-group">    
+            <div class="form-group">
                 <label class="col-sm-3 control-label">信用度：</label>
                 <div class="col-sm-8">
                     <input name="credit" th:field="*{credit}" class="form-control" type="text">
                 </div>
             </div>
-            <div class="form-group">    
+            <div class="form-group">
                 <label class="col-sm-3 control-label">进度：</label>
                 <div class="col-sm-8">
                     <input name="progress" th:field="*{progress}" class="form-control" type="text">
@@ -138,8 +138,8 @@
                     <textarea name="reporter" class="form-control">[[*{reporter}]]</textarea>
                 </div>
             </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">机会来源(同事介绍\官网\广告)：</label>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">机会来源：</label>
                 <div class="col-sm-8">
                     <input name="customerSource" th:field="*{customerSource}" class="form-control" type="text">
                 </div>
@@ -177,10 +177,19 @@
             }
         }
 
+        // $("input[name='visitTime']").datetimepicker({
+        //     format: "yyyy-mm-dd hh:ii:ss",
+        //     minView: "month",
+        //     autoclose: true
+        // });
         $("input[name='visitTime']").datetimepicker({
-            format: "yyyy-mm-dd",
-            minView: "month",
-            autoclose: true
+            /*format: "yyyy-mm-dd",*/
+            format: "yyyy-mm-dd hh:ii:ss",
+            /*minView: "0",*/   //日期时间选择器所能够提供的最精确的时间选择视图
+            todayBtn: true , //是否显示当前日期（今天）按钮
+            autoclose: true, //当选择一个日期之后是否立即关闭此日期时间选择器。
+            /*minuteStep: '5'*/
+            todayHighlight:true, //是否高亮当前日期
         });
 
         $(".file-upload").each(function (i) {
@@ -265,15 +274,15 @@
                         return html;
                     }
 				},
-                {
-                    field: 'delFlag',
-                    align: 'center',
-                    title: '删除标志',
-                    formatter: function(value, row, index) {
-                        var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].delFlag' value='%s'>", index, value);
-                        return html;
-                    }
-				},
+                // {
+                //     field: 'delFlag',
+                //     align: 'center',
+                //     title: '删除标志',
+                //     formatter: function(value, row, index) {
+                //         var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].delFlag' value='%s'>", index, value);
+                //         return html;
+                //     }
+				// },
                 {
                     field: 'evaluation',
                     align: 'center',
@@ -345,7 +354,7 @@
                         var html = $.common.sprintf("<input class='form-control' type='text' name='tCustomerContactList[%s].remark' value='%s'>", index, value);
                         return html;
                     }
-				
+
                 }]
             };
             $.table.init(options);
@@ -354,7 +363,7 @@
         function addColumn() {
             var count = $("#" + table.options.id).bootstrapTable('getData').length;
             sub.editColumn();
-        	
+
             $("#" + table.options.id).bootstrapTable('insertRow', {
                 index: count,
                 row: {
@@ -364,7 +373,7 @@
                     planTime: "",
                     result: "",
                     solution: "",
-                    delFlag: "",
+                    // delFlag: "",
                     evaluation: "",
                     createTime: "",
                     createBy: "",
