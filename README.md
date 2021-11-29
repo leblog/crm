@@ -6,8 +6,3 @@
 
 
 
-
-## 后台账号
-
-- lijiyang/admin123
-
